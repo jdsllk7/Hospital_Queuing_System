@@ -11,11 +11,11 @@
 <div class="bgimg">
 
   <div class="topleft">
-    <p>Logo</p>
+    <h1 style="padding-left:15px;">&#9824;</h1>
   </div>
 
   <form class="middle" action="validate.php" method="GET" autocomplete="on">
-    <h1>Pamsco International Clinic</h1>
+    <h1 class="green_text">Pamsco International Clinic</h1>
     <hr>
     <br>
     <br>
