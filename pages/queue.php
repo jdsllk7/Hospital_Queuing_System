@@ -12,7 +12,7 @@
 <body class="bgimg2">
 
     <div class="topleft">
-        <h1 style="padding-left:15px;"><a href="room1.php">&#9824;</a></h1>
+        <h1 style="padding-left:15px;">&#9824;</h1>
     </div>
 
     <!-- <br> -->
@@ -94,7 +94,7 @@
         </div>
 
     <?php }else{ ?>
-        <div class="info info3">
+        <div class="info info2">
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
             <span style="color:#000;cursor:default;left:40px;" class="speakbtn"><span class="room">All Rooms Are Currently Unavailable...</span></span>
         </div>
