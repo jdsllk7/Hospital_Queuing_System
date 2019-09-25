@@ -5,12 +5,14 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <meta http-equiv="refresh" content="5" > 
 </head>
+
 
 <body class="bgimg2">
 
     <div class="topleft">
-        <h1 style="padding-left:15px;">&#9824;</h1>
+        <h1 style="padding-left:15px;"><a href="room1.php">&#9824;</a></h1>
     </div>
 
     <!-- <br> -->
@@ -66,18 +68,54 @@
     </div>
     <?php if(isset($_GET["reset"])){ ?>
       <div class="success">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <span class="closebtn" onclick="this.parentElement.style.display='none';"><a style="text-decoration:none;" href="queue.php">&times;</a></span> 
         <p><?php echo "<strong>SUCCESS! </strong> Queue reset successfully.";?></p>
       </div>
     <?php } ?>
 
+    <?php if(isset($_COOKIE["room1"])){ ?>
+        <div class="info info3">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <span style="color:#2196F3;cursor:default;left:40px;" class="speakbtn"><span class="room">Room.1</span> &#9836;</span>
+            <h2 style="margin:3%; text-decoration:underline;">FREE ROOMS</h2>
+        </div>
+    <?php }elseif(isset($_COOKIE["room2"])){ ?>
+        <div class="info info3">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <span style="color:#2196F3;cursor:default;left:40px;" class="speakbtn"><span class="room">Room.2</span> &#9836;</span>
+            <h2 style="margin:3%; text-decoration:underline;">FREE ROOMS</h2>
+        </div>
+
+    <?php }elseif(isset($_COOKIE["room3"])){ ?>
+        <div class="info info3">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <span style="color:#2196F3;cursor:default;left:40px;" class="speakbtn"><span class="room">Room.3</span> &#9836;</span>
+            <h2 style="margin:3%; text-decoration:underline;">FREE ROOMS</h2>
+        </div>
+
+    <?php }else{ ?>
+        <div class="info info3">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <span style="color:#000;cursor:default;left:40px;" class="speakbtn"><span class="room">All Rooms Are Currently Unavailable...</span></span>
+        </div>
+    <?php } ?>
+
+
     <?php if (isset($_GET["name"]) && isset($_GET['id'])) { ?>
         <div class="info info2">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            <span class="speakbtn" onclick="speaking1('<?php echo $_GET['name']; ?>')"><span class="room">Room.1</span> &#9836;</span>
-            <span class="speakbtn2" onclick="speaking2('<?php echo $_GET['name']; ?>')"><span class="room">Room.2</span> &#9836;</span>
-            <span class="speakbtn3" onclick="speaking3('<?php echo $_GET['name']; ?>')"><span class="room">Room.3</span> &#9836;</span>
-            <p><?php echo "<strong>INFO! " . $_GET['name'] . "</strong> is next.<br><b>ID</b> = " . $_GET["id"] . ""; ?></p>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';"><a style="text-decoration:none;" href="queue.php">&times;</a></span>
+            <?php if(isset($_COOKIE["room1"])){ ?>
+                <span class="speakbtn" onclick="speaking1('<?php echo $_GET['name']; ?>')"><span class="room">Room.1</span> &#9836;</span>
+                <p><?php echo "<strong>INFO! " . $_GET['name'] . "</strong> is next.<br><b>ID</b> = " . $_GET["id"] . ""; ?></p>
+            <?php }elseif(isset($_COOKIE["room2"])){ ?>
+                <span class="speakbtn2" onclick="speaking2('<?php echo $_GET['name']; ?>')"><span class="room">Room.2</span> &#9836;</span>
+                <p><?php echo "<strong>INFO! " . $_GET['name'] . "</strong> is next.<br><b>ID</b> = " . $_GET["id"] . ""; ?></p>
+            <?php }elseif(isset($_COOKIE["room3"])){ ?>
+                <span class="speakbtn3" onclick="speaking3('<?php echo $_GET['name']; ?>')"><span class="room">Room.3</span> &#9836;</span>
+                <p><?php echo "<strong>INFO! " . $_GET['name'] . "</strong> is next.<br><b>ID</b> = " . $_GET["id"] . ""; ?></p>
+            <?php }else{ ?>
+                <span style="color:#000;cursor:default;left:40px;" class="speakbtn"><span class="room">All Rooms Are Currently Unavailable...</span></span>
+            <?php } ?>
         </div>
 
         <script>

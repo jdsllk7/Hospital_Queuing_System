@@ -37,6 +37,4 @@ $sql = "CREATE TABLE IF NOT EXISTS patients (
     mysqli_query($conn, $sql);
 
 
-
-
 ?>
