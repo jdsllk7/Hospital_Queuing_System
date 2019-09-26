@@ -16,28 +16,28 @@
 
 
   <div class="card">
-    <img src="../images/333.png" alt="Avatar" style="width:100%">
+    <img src="../images/Chipeko.jpg" alt="Avatar" style="width:100%">
     <div class="container">
       <h4><b>NAME:</b> Chipeko Muyembe</h4> 
       <p><b>SIN:</b> 15004834</p> 
     </div>
   </div>
   <div class="card">
-    <img src="../images/555.jpg" alt="Avatar" style="width:100%">
+    <img src="../images/Daniel.jpg" alt="Avatar" style="width:100%">
     <div class="container">
-      <h4><b>NAME:</b> Daniel Kalaluka Chipoya</h4> 
+      <h4><b>NAME:</b> Kalaluka Chipoya</h4> 
       <p><b>SIN:</b> 13060958</p> 
     </div>
   </div>
   <div class="card">
-    <img src="../images/333.png" alt="Avatar" style="width:100%">
+    <img src="../images/Mary.png" alt="Avatar" style="width:100%">
     <div class="container">
       <h4><b>NAME:</b> Mary Mwamba</h4> 
       <p><b>SIN:</b> 15002187</p> 
     </div>
   </div>
   <div class="card">
-    <img src="../images/555.jpg" alt="Avatar" style="width:100%">
+    <img src="../images/Henry.jpg" alt="Avatar" style="width:100%">
     <div class="container">
       <h4><b>NAME:</b> Henry Mukuka</h4> 
       <p><b>SIN:</b> 14498037</p> 

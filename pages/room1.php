@@ -20,46 +20,27 @@
 
     <div class="middle2">
 
+        <br>
+        <br>
+        <br>
         <h2>ROOM.1 - Doctor's Office</h2>
 
-        <table id="myTable">
-
-            <tr class="header">
-                <th style="width:60%;">Patient's Name</th>
-                <th style="width:30%;">Queue No.</th>
-                <th style="width:30%;">Up Next</th>
-            </tr>
 
 
 
             <?php
-            $sql = "SELECT * FROM patients";
-            $result = mysqli_query($conn, $sql);
+                $sql = "SELECT * FROM patients";
+                $result = mysqli_query($conn, $sql);
 
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-
-                    echo "<tr>";
-                    echo "<td>" . $row["username"] . "</td>";
-                    echo '<td class="number">' . $row["id"] . '</td>';
-                    echo "<td class='next'>
-                            <form action='close.php' method='get'>
-                                <input type='hidden' name='close1occupied' value=''>
-                                <button type='submit' class='btn2 warning'>Send Next</button>
-                            </form>
-                        </td>";
-                    echo "</tr>";
+                if (mysqli_num_rows($result) > 0) {
+                    echo "<br><br><br>";
+                    echo "<a href='close.php?close1occupied'><button class='button'><span>Next Patient </span></button></a>";
+                } else {
+                    echo "<br><br><br>";
+                    echo "No More Patients...";
                 }
-            } else {
-                echo "<tr>";
-                echo "<td>No Patients Added!</td>";
-                echo "<td></td>";
-                echo "<td></td>";
-                echo "</tr>";
-            }
             ?>
 
-        </table>
 
 
         <br>
@@ -88,7 +69,16 @@
     <?php } ?>
 
 
-    <?php if(isset($_COOKIE["room1"])){ ?>
+    
+
+
+    <?php
+    
+    $result = mysqli_query($conn, "SELECT * FROM rooms WHERE room like 'room1'");
+    $row = mysqli_fetch_assoc($result);
+    
+    
+    if($row['available'] == 1){ ?>
         <div class="bottomRight">
             <a href="close.php?close1"><button class="btn" style="">CLOSE<br>ROOM 1 </button></a>
         </div>

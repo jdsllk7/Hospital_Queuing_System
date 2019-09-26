@@ -37,4 +37,18 @@ $sql = "CREATE TABLE IF NOT EXISTS patients (
     mysqli_query($conn, $sql);
 
 
+//CREATING ROOMS TABLE
+$sql = "CREATE TABLE IF NOT EXISTS rooms (
+    id BIGINT(20) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    room VARCHAR(200) NOT NULL,
+    available BOOL DEFAULT 0 NOT NULL,
+    UNIQUE (room)
+    )";
+    // $sql = "DROP TABLE IF EXISTS rooms";
+    mysqli_query($conn, $sql);
+
+    mysqli_query($conn, "INSERT INTO rooms (room) VALUES ('room1');");
+    mysqli_query($conn, "INSERT INTO rooms (room) VALUES ('room2');");
+    mysqli_query($conn, "INSERT INTO rooms (room) VALUES ('room3');");
+
 ?>

@@ -1,7 +1,22 @@
 <!DOCTYPE html>
 <html>
 
-<?php include 'connect.php'; ?>
+<?php include 'connect.php'; 
+
+
+$result1 = mysqli_query($conn, "SELECT * FROM rooms WHERE room like 'room1'");
+$row1 = mysqli_fetch_assoc($result1);
+$row1['available'];
+
+$result2 = mysqli_query($conn, "SELECT * FROM rooms WHERE room like 'room2'");
+$row2 = mysqli_fetch_assoc($result2);
+$row2['available'];
+
+$result3 = mysqli_query($conn, "SELECT * FROM rooms WHERE room like 'room3'");
+$row3 = mysqli_fetch_assoc($result3);
+$row3['available'];
+
+?>
 
 <head>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -73,20 +88,20 @@
       </div>
     <?php } ?>
 
-    <?php if(isset($_COOKIE["room1"])){ ?>
+    <?php if($row1['available'] == 1){ ?>
         <div class="info info3">
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
             <span style="color:#2196F3;cursor:default;left:40px;" class="speakbtn"><span class="room">Room.1</span> &#9836;</span>
             <h2 style="margin:3%; text-decoration:underline;">FREE ROOMS</h2>
         </div>
-    <?php }elseif(isset($_COOKIE["room2"])){ ?>
+    <?php }elseif($row2['available'] == 1){ ?>
         <div class="info info3">
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
             <span style="color:#2196F3;cursor:default;left:40px;" class="speakbtn"><span class="room">Room.2</span> &#9836;</span>
             <h2 style="margin:3%; text-decoration:underline;">FREE ROOMS</h2>
         </div>
 
-    <?php }elseif(isset($_COOKIE["room3"])){ ?>
+    <?php }elseif($row3['available'] == 1){ ?>
         <div class="info info3">
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
             <span style="color:#2196F3;cursor:default;left:40px;" class="speakbtn"><span class="room">Room.3</span> &#9836;</span>
@@ -104,13 +119,13 @@
     <?php if (isset($_GET["name"]) && isset($_GET['id'])) { ?>
         <div class="info info2">
             <span class="closebtn" onclick="this.parentElement.style.display='none';"><a style="text-decoration:none;" href="queue.php">&times;</a></span>
-            <?php if(isset($_COOKIE["room1"])){ ?>
+            <?php if($row1['available'] == 1){ ?>
                 <span class="speakbtn" onclick="speaking1('<?php echo $_GET['name']; ?>')"><span class="room">Room.1</span> &#9836;</span>
                 <p><?php echo "<strong>INFO! " . $_GET['name'] . "</strong> is next.<br><b>ID</b> = " . $_GET["id"] . ""; ?></p>
-            <?php }elseif(isset($_COOKIE["room2"])){ ?>
+            <?php }elseif($row2['available'] == 1){ ?>
                 <span class="speakbtn2" onclick="speaking2('<?php echo $_GET['name']; ?>')"><span class="room">Room.2</span> &#9836;</span>
                 <p><?php echo "<strong>INFO! " . $_GET['name'] . "</strong> is next.<br><b>ID</b> = " . $_GET["id"] . ""; ?></p>
-            <?php }elseif(isset($_COOKIE["room3"])){ ?>
+            <?php }elseif($row3['available'] == 1){ ?>
                 <span class="speakbtn3" onclick="speaking3('<?php echo $_GET['name']; ?>')"><span class="room">Room.3</span> &#9836;</span>
                 <p><?php echo "<strong>INFO! " . $_GET['name'] . "</strong> is next.<br><b>ID</b> = " . $_GET["id"] . ""; ?></p>
             <?php }else{ ?>
